@@ -10,13 +10,13 @@ namespace OOP
     {
         public static void Main(string[] args)
         {
-            Inimene inimene1 = new Inimene(); // 1. способ
-            inimene1.Nimi = "Juku";
-            inimene1.Vanus = 12;
-            inimene1.Tervita();
+            //Inimene inimene1 = new Inimene(); // 1. способ
+            //inimene1.Nimi = "Juku";
+            //inimene1.Vanus = 12;
+            //inimene1.Tervita();
 
-            Inimene inimene2 = new Inimene("Kati", 23); // 2. способ
-            inimene2.Tervita();
+            //Inimene inimene2 = new Inimene("Kati", 23); // 2. способ
+           //inimene2.Tervita();
 
             Töötaja töötaja1 = new Töötaja();
             töötaja1.Nimi = "Mati";
@@ -26,11 +26,12 @@ namespace OOP
             töötaja1.Töötan();
 
 
-            Klass õpilane1 = new Klass();
-            õpilane1.Nimi = "Mari";
-            õpilane1.Vanus = 14;
-            õpilane1.Klas = 7;
+            Klass õpilane1 = new Klass("Mari", 14, 7);
+            õpilane1.Tervita();
+            õpilane1.Õpin();
 
+            Kool õpilane2 = new Kool("Jaan", 16, "Kool 3");
+            õpilane2.Kooli();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP
 {
-    public class Õpilane : Inimene
+    public class Õpilane 
     {
         public string Nimi;
         public int Vanus;
@@ -20,10 +20,6 @@ namespace OOP
         public void Tervita() 
         {
             Console.WriteLine($"Tere! Mina olen {Nimi}. Ma olen {Vanus} aastane." );
-        }
-        public override void Mida_tee()
-        {
-            Console.WriteLine($"{Nimi} õpib koolis");
         }
     }
     public class Klass : Õpilane 
