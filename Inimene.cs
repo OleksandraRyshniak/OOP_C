@@ -10,9 +10,12 @@ namespace OOP
     {
         public string Nimi; //объекты
         public int Vanus;
-        public Inimene() { } //1 способ - конструктор
-
-        public Inimene(string nimi, int vanus) //2 способ - конструктор
+        public Pank Konto {  get; set; }
+        public Inimene() 
+        {
+            Konto = new Pank();
+        } 
+        public Inimene(string nimi, int vanus) 
         {
             Nimi = nimi;
             Vanus = vanus;
