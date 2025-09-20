@@ -8,22 +8,19 @@ namespace OOP
 {
     public class Elektritõukeratas : ISõiduk
     {
-        public string Nimi { get; set; }
-        public double Hind { get; set; }
-        public double Kütusekulu { get; set; }
-
-        public Elektritõukeratas(string nimi, double hind, double kütusekulu)
+        public double Vahemaa { get; set; }
+        public double HindKm { get; set; } // €/km
+        public Elektritõukeratas(double vahemaa, double hindKm)
         {
-            Nimi = nimi;
-            Hind = hind;
-            Kütusekulu = kütusekulu;
+            Vahemaa = vahemaa;
+            HindKm = hindKm;
         }
-        public double ArvutaKulu() => Kütusekulu; // kWh/100km
-        public double ArvutaVahemaa() => 100; // km
+        public double ArvutaKulu() => Vahemaa * HindKm;
+        public double ArvutaVahemaa() => Vahemaa;
+
         public override string ToString()
         {
-            return $"{Nimi}, Hind: {Hind}€, Kütusekulu: {Kütusekulu}kWh/100km";
+            return $"Elektritõukeratas -> Vahemaa: {Vahemaa} km, Kulu: {ArvutaKulu():F2} €";
         }
     }
-
 }
