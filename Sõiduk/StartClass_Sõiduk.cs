@@ -12,34 +12,34 @@ namespace OOP
         public static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            List<ISõiduk> sõidukid = new List<ISõiduk>();
+            List<ISõiduk> sõidukid = new List<ISõiduk>(); // list loomine
             while (true)
             {
                 Console.WriteLine("\nVali sõiduk: 1=Auto, 2=Jalgratas, 3=Buss, 4=Elektritõukeratas, 0=Välju");
                 string valik = Console.ReadLine();
-                if (valik == "0") break;
+                if (valik == "0") break; // väljuda
 
-                try
+                try // sisestusvigade kaitse
                 {
                     switch (valik)
                     {
-                        case "1":
+                        case "1": // auto
                             Console.Write("Sisesta kütusekulu (l/100km): ");
                             if (!double.TryParse(Console.ReadLine(), out double akulu)) throw new Exception("Vale number");
                             Console.Write("Sisesta vahemaa (km): ");
                             if (!double.TryParse(Console.ReadLine(), out double akm)) throw new Exception("Vale number");
                             Console.Write("Sisesta kütuse hind (€/l): ");
                             if (!double.TryParse(Console.ReadLine(), out double ahind)) throw new Exception("Vale number");
-                            sõidukid.Add(new Auto(akulu, akm, ahind));
+                            sõidukid.Add(new Auto(akulu, akm, ahind)); // add in list
                             break;
 
-                        case "2":
+                        case "2": // jalgratas
                             Console.Write("Sisesta vahemaa (km): ");
                             if (!double.TryParse(Console.ReadLine(), out double jkm)) throw new Exception("Vale number");
-                            sõidukid.Add(new Jalgratas(jkm));
+                            sõidukid.Add(new Jalgratas(jkm));//add in list
                             break;
 
-                        case "3":
+                        case "3": // buss
                             Console.Write("Sisesta kütusekulu (l/100km): ");
                             if (!double.TryParse(Console.ReadLine(), out double bkulu)) throw new Exception("Vale number");
                             Console.Write("Sisesta vahemaa (km): ");
@@ -48,19 +48,19 @@ namespace OOP
                             if (!int.TryParse(Console.ReadLine(), out int reisijad)) throw new Exception("Vale number");
                             Console.Write("Sisesta kütuse hind (€/l): ");
                             if (!double.TryParse(Console.ReadLine(), out double bhind)) throw new Exception("Vale number");
-                            sõidukid.Add(new Buss(bkulu, bkm, reisijad, bhind));
+                            sõidukid.Add(new Buss(bkulu, bkm, reisijad, bhind)); //add in list
                             break;
 
-                        case "4":
+                        case "4": // elektritõukeratas
                             Console.Write("Sisesta vahemaa (km): ");
                             if (!double.TryParse(Console.ReadLine(), out double ekm)) throw new Exception("Vale number");
                             Console.Write("Sisesta hind €/km: ");
                             if (!double.TryParse(Console.ReadLine(), out double ehind)) throw new Exception("Vale number");
-                            sõidukid.Add(new Elektritõukeratas(ekm, ehind));
+                            sõidukid.Add(new Elektritõukeratas(ekm, ehind)); //add in list
                             break;
 
                         default:
-                            Console.WriteLine("Tundmatu valik.");
+                            Console.WriteLine("Tundmatu valik."); // tundmatu valik
                             break;
                     }
                 }
@@ -69,10 +69,10 @@ namespace OOP
                     Console.WriteLine("Viga: " + ex.Message);
                 }
             }
-            try
+            try 
             {
                 string path = @"..\..\..\Sõiduk.txt";
-                using (StreamWriter writer = new StreamWriter(path, false)) // false = перезаписать файл
+                using (StreamWriter writer = new StreamWriter(path, false)) //faili avamine ja uuesti salvestamine
                 {
                     foreach (var s in sõidukid)
                     {
@@ -93,7 +93,7 @@ namespace OOP
                 Console.WriteLine("Faili salvestamise viga: " + ex.Message);
             }
 
-            // 4) Выводим результат
+            // вывод общей стоимости
             double totalKulu = 0;
             Console.WriteLine("\nSõidukite info:");
             foreach (var s in sõidukid)

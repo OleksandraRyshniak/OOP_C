@@ -8,8 +8,8 @@ namespace OOP
 {
     public class Auto : ISõiduk
     {
-        public double Kütusekulu { get; set; }  // л / 100 км
-        public double Vahemaa { get; set; }     // км
+        public double Kütusekulu { get; set; }  // l/100km
+        public double Vahemaa { get; set; }     // km
         public double Hind { get; set; }        // €/л
 
         public Auto(double kütusekulu, double vahemaa, double hind)
@@ -19,7 +19,7 @@ namespace OOP
             Hind = hind;
         }
 
-        public double ArvutaKulu() => (Kütusekulu / 100) * Vahemaa * Hind;
+        public double ArvutaKulu() => (Kütusekulu / 100) * Vahemaa * Hind; // hinna arvutus
         public double ArvutaVahemaa() => Vahemaa;
 
         public override string ToString()
