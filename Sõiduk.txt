@@ -1,4 +1,1 @@
-auto,54,120,1,52
-jalgratas,45
-buss,78,502,25,1,5
-tõukeratas,45,1,2
+auto,78,125,0,25
